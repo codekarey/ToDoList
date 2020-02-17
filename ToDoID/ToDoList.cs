@@ -6,9 +6,16 @@ namespace ToDoID
 {
     class ToDoList
     {
-
+        //fields
+        string taskid;
+        string taskname;
+        string taskfor;
+        string description;
+        string status;
+        string duedate;
 
         //props
+        public string TaskId { get; set; }
         public string TaskName { get; set; }
         public string TaskFor { get; set; }
         public string Description { get; set; }
@@ -34,21 +41,24 @@ namespace ToDoID
         public void ShowList()
         {
             {   //output format
-                Console.WriteLine("_________________________________________________");
-                Console.WriteLine("Task Number " + (Count) + "]  Team member: " + TaskFor + "");
-                Console.WriteLine("Task: "+TaskName+"   Description: " + Description);
-                Console.WriteLine("Due Date: " + DueDate + "   Status: " + Status);
-                Console.WriteLine("_________________________________________________");
+               
+                Console.WriteLine(TaskName + " : " + Description);
+                Console.WriteLine("Finish by: " + DueDate + "   |   Status: " + Status+ "");
+
+                Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             }
         }
 
         public static List<ToDoList> DoList(List<ToDoList> list)
         {
-            foreach(ToDoList toDo in list)
+            int j = 1;
+            foreach (ToDoList toDo in list)
             {
+                Console.WriteLine("\n" + (j++) + " ]>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
                 toDo.ShowList();
             }
             return list;
+
         }
 
         //sets value to user input
